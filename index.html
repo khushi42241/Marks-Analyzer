@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Analyzer</title>
+</head>
+
+<body>
+
+    <h1> KHUSHI PANDEY</h1>
+
+    <h2>Student Marks Analyzer</h2>
+
+    <p>Enter student details in the prompts.</p>
+
+    <script>
+
+
+        let name = prompt("Enter student name:");
+
+        let rollNo = Number(prompt("Enter roll number:"));
+
+        let department = prompt("Enter department:");
+
+        console.log("Student Name:", name.toUpperCase());
+
+        console.log("Roll Number:", rollNo);
+
+        console.log("Department:", department);
+
+        console.log("Name Length:", name.length);
+
+        let marks = [];
+        for (let i = 1; i <= 5; i++) {
+            let mark;
+            do {
+
+                mark = Number(prompt("Enter subject mark " + i + " (0-100):"));
+
+                if (mark < 0 || mark > 100) {
+
+                    alert("Please enter marks between 0 and 100.");
+
+                }
+
+            } while (mark < 0 || mark > 100);
+
+            marks.push(mark);
+
+        }
+
+        console.log("Student Marks:", marks);
+
+
+
+        function calculateTotal(marks) {
+
+            let total = 0;
+
+            for (let i = 0; i < marks.length; i++) {
+
+                total = total + marks[i];
+
+            }
+
+            return total;
+        }
+
+        console.log("Total Marks:", calculateTotal(marks));
+
+
+
+        function calculatePercentage(marks) {
+
+            let total = calculateTotal(marks);
+
+            let percentage = total / marks.length;
+
+            return percentage;
+        }
+
+        console.log("Percentage:", calculatePercentage(marks) + "%");
+
+
+
+        function findHighest(marks) {
+
+            let highest = marks[0];
+
+            for (let i = 1; i < marks.length; i++) {
+
+                if (marks[i] > highest) {
+
+                    highest = marks[i];
+
+                }
+
+            }
+
+            return highest;
+        }
+
+        console.log("Highest Marks:", findHighest(marks));
+
+
+        function findLowest(marks) {
+
+            let lowest = marks[0];
+
+            for (let i = 1; i < marks.length; i++) {
+
+                if (marks[i] < lowest) {
+
+                    lowest = marks[i];
+
+                }
+
+            }
+
+            return lowest;
+        }
+
+        console.log("Lowest Marks:", findLowest(marks));
+
+
+        function countPassed(marks) {
+
+            let passed = 0;
+
+            for (let i = 0; i < marks.length; i++) {
+
+                if (marks[i] >= 40) {
+
+                    passed++;
+
+                }
+
+            }
+
+            return passed;
+        }
+
+        console.log("Subjects Passed:", countPassed(marks));
+
+        function getPerformance(marks) {
+
+            let percentage = calculatePercentage(marks);
+
+            if (percentage >= 80) {
+
+                return "Excellent";
+            }
+            else if (percentage >= 60) {
+
+                return "Good";
+            }
+
+            else if (percentage >= 40) {
+
+                return "Average";
+            }
+
+            else {
+                return "Needs Improvement";
+            }
+        }
+        console.log("Performance:", getPerformance(marks));
+
+
+    </script>
+
+</body>
+
+</html>
